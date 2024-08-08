@@ -28,7 +28,7 @@ The Windows Forms application provides a user-friendly interface for interacting
 #### Main Features
 
 - **Start/Stop Measurement**: Start or stop the measurement using buttons.
-- **Display Measurements**: Real-time display of current measurements (PM1.0, PM2.5, PM4, PM10).
+- **Display Measurements**: Real-time display of current measurements (PM1, PM2.5, PM4, PM10).
 - **Plot Data**: Graph to visualize particle concentrations over time.
 
 ## Contribution
