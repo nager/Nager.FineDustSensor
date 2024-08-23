@@ -50,6 +50,14 @@
             labelHardwareRevision = new Label();
             labelShdlcProtocol = new Label();
             panel1 = new Panel();
+            panel3 = new Panel();
+            label4 = new Label();
+            label2 = new Label();
+            labelPM2_5 = new Label();
+            panel2 = new Panel();
+            label3 = new Label();
+            label1 = new Label();
+            labelPM1 = new Label();
             tabControl1 = new TabControl();
             tabPageMeasurement = new TabPage();
             tabPageManagement = new TabPage();
@@ -59,6 +67,8 @@
             groupBoxVersion = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)chartFineDust).BeginInit();
             panel1.SuspendLayout();
+            panel3.SuspendLayout();
+            panel2.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPageMeasurement.SuspendLayout();
             tabPageManagement.SuspendLayout();
@@ -235,6 +245,8 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(panel3);
+            panel1.Controls.Add(panel2);
             panel1.Controls.Add(textBoxSerialPort);
             panel1.Controls.Add(buttonConnect);
             panel1.Controls.Add(buttonDisconnect);
@@ -247,6 +259,86 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 101);
             panel1.TabIndex = 12;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = SystemColors.ControlLightLight;
+            panel3.Controls.Add(label4);
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(labelPM2_5);
+            panel3.Location = new Point(541, 10);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(152, 61);
+            panel3.TabIndex = 13;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.ForeColor = SystemColors.AppWorkspace;
+            label4.Location = new Point(103, 4);
+            label4.Name = "label4";
+            label4.Size = new Size(41, 15);
+            label4.TabIndex = 13;
+            label4.Text = "µg/m³";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(3, 4);
+            label2.Name = "label2";
+            label2.Size = new Size(43, 15);
+            label2.TabIndex = 11;
+            label2.Text = "PM 2.5";
+            // 
+            // labelPM2_5
+            // 
+            labelPM2_5.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelPM2_5.Location = new Point(3, 19);
+            labelPM2_5.Name = "labelPM2_5";
+            labelPM2_5.Size = new Size(146, 37);
+            labelPM2_5.TabIndex = 10;
+            labelPM2_5.Text = "PM2_5";
+            labelPM2_5.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = SystemColors.ControlLightLight;
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(labelPM1);
+            panel2.Location = new Point(383, 10);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(152, 61);
+            panel2.TabIndex = 12;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = SystemColors.AppWorkspace;
+            label3.Location = new Point(102, 4);
+            label3.Name = "label3";
+            label3.Size = new Size(41, 15);
+            label3.TabIndex = 12;
+            label3.Text = "µg/m³";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(3, 4);
+            label1.Name = "label1";
+            label1.Size = new Size(34, 15);
+            label1.TabIndex = 11;
+            label1.Text = "PM 1";
+            // 
+            // labelPM1
+            // 
+            labelPM1.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelPM1.Location = new Point(3, 19);
+            labelPM1.Name = "labelPM1";
+            labelPM1.Size = new Size(146, 37);
+            labelPM1.TabIndex = 10;
+            labelPM1.Text = "PM1";
+            labelPM1.TextAlign = ContentAlignment.MiddleRight;
             // 
             // tabControl1
             // 
@@ -338,6 +430,10 @@
             ((System.ComponentModel.ISupportInitialize)chartFineDust).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPageMeasurement.ResumeLayout(false);
             tabPageManagement.ResumeLayout(false);
@@ -369,5 +465,13 @@
         private Button buttonWakeUp;
         private Button buttonSleep;
         private GroupBox groupBoxSensor;
+        private Label labelPM1;
+        private Panel panel3;
+        private Label label2;
+        private Label labelPM2_5;
+        private Panel panel2;
+        private Label label1;
+        private Label label4;
+        private Label label3;
     }
 }

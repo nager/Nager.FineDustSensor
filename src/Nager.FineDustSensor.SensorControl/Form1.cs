@@ -15,6 +15,9 @@ namespace Nager.FineDustSensor.SensorControl
             this.InitializeComponent();
             this.DeactivateSensorControls();
 
+            this.labelPM1.Text = "";
+            this.labelPM2_5.Text = "";
+
             this._loggerFactory = LoggerFactory.Create(builder =>
             {
                 builder.SetMinimumLevel(LogLevel.Trace);
@@ -100,6 +103,16 @@ namespace Nager.FineDustSensor.SensorControl
                             await Task.Delay(timeout, this._cancellationTokenSource.Token);
                             continue;
                         }
+
+                        this.labelPM1.Invoke(() =>
+                        {
+                            this.labelPM1.Text = commandResponse.MassConcentrationPm1.ToString("0.00");
+                        });
+
+                        this.labelPM2_5.Invoke(() =>
+                        {
+                            this.labelPM2_5.Text = commandResponse.MassConcentrationPm2_5.ToString("0.00");
+                        });
 
                         this.chartFineDust.Invoke(() =>
                         {
