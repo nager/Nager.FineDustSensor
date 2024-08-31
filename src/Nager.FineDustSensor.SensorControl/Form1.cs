@@ -5,9 +5,9 @@ namespace Nager.FineDustSensor.SensorControl
 {
     public partial class Form1 : Form
     {
-        private IDeviceCommunication _deviceCommunication;
-        private Sps30Client _sps30Client;
-        private CancellationTokenSource _cancellationTokenSource;
+        private IDeviceCommunication? _deviceCommunication;
+        private Sps30Client? _sps30Client;
+        private CancellationTokenSource? _cancellationTokenSource;
         private readonly ILoggerFactory _loggerFactory;
 
         public Form1()
@@ -58,6 +58,11 @@ namespace Nager.FineDustSensor.SensorControl
 
         private async void buttonDisconnect_Click(object sender, EventArgs e)
         {
+            if (this._deviceCommunication == null)
+            {
+                return;
+            }
+
             if (await this._deviceCommunication.DisconnectAsync())
             {
                 this.DeactivateSensorControls();
@@ -71,6 +76,11 @@ namespace Nager.FineDustSensor.SensorControl
 
         private async Task GetVersionAsync()
         {
+            if (this._sps30Client == null)
+            {
+                return;
+            }
+
             var versionResponse = await this._sps30Client.ReadVersionAsync();
             if (versionResponse == null)
             {
@@ -87,6 +97,11 @@ namespace Nager.FineDustSensor.SensorControl
 
         private void buttonStartRecording_Click(object sender, EventArgs e)
         {
+            if (this._sps30Client == null)
+            {
+                return;
+            }
+
             this._cancellationTokenSource = new CancellationTokenSource();
             var timeout = 1000;
 
@@ -135,7 +150,7 @@ namespace Nager.FineDustSensor.SensorControl
 
         private void buttonStopRecording_Click(object sender, EventArgs e)
         {
-            this._cancellationTokenSource.Cancel();
+            this._cancellationTokenSource?.Cancel();
 
             this.buttonStopRecording.Enabled = false;
             this.buttonStartRecording.Enabled = true;
@@ -143,6 +158,11 @@ namespace Nager.FineDustSensor.SensorControl
 
         private async void buttonStartMeasurement_Click(object sender, EventArgs e)
         {
+            if (this._sps30Client == null)
+            {
+                return;
+            }
+
             if (!await this._sps30Client.StartMeasurementAsync())
             {
                 MessageBox.Show("Cannot Start Measurement", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -151,6 +171,11 @@ namespace Nager.FineDustSensor.SensorControl
 
         private async void buttonStopMeasurement_Click(object sender, EventArgs e)
         {
+            if (this._sps30Client == null)
+            {
+                return;
+            }
+
             if (!await this._sps30Client.StopMeasurementAsync())
             {
                 MessageBox.Show("Cannot Stop Measurement", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -159,11 +184,21 @@ namespace Nager.FineDustSensor.SensorControl
 
         private async void buttonSleep_Click(object sender, EventArgs e)
         {
+            if (this._sps30Client == null)
+            {
+                return;
+            }
+
             await this._sps30Client.SleepAsync();
         }
 
         private async void buttonWakeUp_Click(object sender, EventArgs e)
         {
+            if (this._sps30Client == null)
+            {
+                return;
+            }
+
             await this._sps30Client.WakeUpAsync();
         }
     }
