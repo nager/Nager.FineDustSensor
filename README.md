@@ -25,6 +25,8 @@ The application also offers the ability to plot the sensor values in a graph.
 
 The Windows Forms application provides a user-friendly interface for interacting with the SPS30 sensor.
 
+![SensorControl Screenshot](/docs/SensorControl.png)
+
 #### Main Features
 
 - **Start/Stop Measurement**: Start or stop the measurement using buttons.
