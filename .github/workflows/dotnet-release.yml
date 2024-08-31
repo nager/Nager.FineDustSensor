@@ -16,13 +16,6 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - name: Extract Version from tag
-      id: tag
-      uses: actions/github-script@v7
-      with:
-        script: |
-          const version = context.ref.replace('refs/tags/', '');
-          return version.slice(1);
     - name: Restore dependencies
       working-directory: ./src
       run: dotnet restore
@@ -42,5 +35,4 @@ jobs:
         repo_name: nager/Nager.FineDustSensor
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: ./publish/Nager.FineDustSensor.SensorControl.zip
-        tag: ${{ steps.tag.outputs.result }}
         overwrite: true
