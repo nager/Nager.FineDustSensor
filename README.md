@@ -23,14 +23,21 @@ The application also offers the ability to plot the sensor values in a graph.
 
 ### Windows Forms Application ("SensorControl")
 
+The Windows Forms application provides a user-friendly interface for interacting with the SPS30 sensor.
+
 #### Main Features
 
 - **Start/Stop Measurement**: Start or stop the measurement using buttons.
 - **Display Measurements**: Real-time display of current measurements (PM1, PM2.5, PM4, PM10).
 - **Plot Data**: Graph to visualize particle concentrations over time.
 
-The Windows Forms application provides a user-friendly interface for interacting with the SPS30 sensor.<br>
+#### Download
+
+You can easily download the tool here<br>
+<br>
 [<kbd> <br> Download SensorControl <br> </kbd>](https://github.com/nager/Nager.FineDustSensor/releases/latest/download/Nager.FineDustSensor.SensorControl.zip)
+
+#### Screenshot
 
 ![SensorControl Screenshot](/docs/SensorControl.png)
 
