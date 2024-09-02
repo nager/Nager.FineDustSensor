@@ -24,7 +24,7 @@ The application also offers the ability to plot the sensor values in a graph.
 ### Windows Forms Application ("SensorControl")
 
 The Windows Forms application provides a user-friendly interface for interacting with the SPS30 sensor.<br>
-You can download SensorControl [here](https://github.com/nager/Nager.FineDustSensor/releases/latest/download/Nager.FineDustSensor.SensorControl.zip).
+[<kbd> <br> Download SensorControl <br> </kbd>](https://github.com/nager/Nager.FineDustSensor/releases/latest/download/Nager.FineDustSensor.SensorControl.zip)
 
 ![SensorControl Screenshot](/docs/SensorControl.png)
 
