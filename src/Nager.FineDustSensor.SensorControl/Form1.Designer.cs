@@ -61,6 +61,9 @@
             tabControl1 = new TabControl();
             tabPageMeasurement = new TabPage();
             tabPageManagement = new TabPage();
+            groupBox1 = new GroupBox();
+            label5 = new Label();
+            buttonFanCleaning = new Button();
             groupBoxSensor = new GroupBox();
             buttonSleep = new Button();
             buttonWakeUp = new Button();
@@ -72,6 +75,7 @@
             tabControl1.SuspendLayout();
             tabPageMeasurement.SuspendLayout();
             tabPageManagement.SuspendLayout();
+            groupBox1.SuspendLayout();
             groupBoxSensor.SuspendLayout();
             groupBoxVersion.SuspendLayout();
             SuspendLayout();
@@ -364,6 +368,7 @@
             // 
             // tabPageManagement
             // 
+            tabPageManagement.Controls.Add(groupBox1);
             tabPageManagement.Controls.Add(groupBoxSensor);
             tabPageManagement.Controls.Add(groupBoxVersion);
             tabPageManagement.Location = new Point(4, 24);
@@ -374,16 +379,46 @@
             tabPageManagement.Text = "Management";
             tabPageManagement.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(buttonFanCleaning);
+            groupBox1.Location = new Point(6, 156);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(281, 89);
+            groupBox1.TabIndex = 15;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Sensor";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(6, 19);
+            label5.Name = "label5";
+            label5.Size = new Size(191, 15);
+            label5.TabIndex = 12;
+            label5.Text = "Start Measurement before required";
+            // 
+            // buttonFanCleaning
+            // 
+            buttonFanCleaning.Location = new Point(6, 37);
+            buttonFanCleaning.Name = "buttonFanCleaning";
+            buttonFanCleaning.Size = new Size(108, 23);
+            buttonFanCleaning.TabIndex = 14;
+            buttonFanCleaning.Text = "Fan Cleaning";
+            buttonFanCleaning.UseVisualStyleBackColor = true;
+            buttonFanCleaning.Click += buttonFanCleaning_Click;
+            // 
             // groupBoxSensor
             // 
             groupBoxSensor.Controls.Add(buttonSleep);
             groupBoxSensor.Controls.Add(buttonWakeUp);
             groupBoxSensor.Location = new Point(6, 91);
             groupBoxSensor.Name = "groupBoxSensor";
-            groupBoxSensor.Size = new Size(281, 89);
+            groupBoxSensor.Size = new Size(281, 59);
             groupBoxSensor.TabIndex = 14;
             groupBoxSensor.TabStop = false;
-            groupBoxSensor.Text = "Sensor";
+            groupBoxSensor.Text = "Deep Sleep";
             // 
             // buttonSleep
             // 
@@ -397,7 +432,7 @@
             // 
             // buttonWakeUp
             // 
-            buttonWakeUp.Location = new Point(6, 51);
+            buttonWakeUp.Location = new Point(93, 22);
             buttonWakeUp.Name = "buttonWakeUp";
             buttonWakeUp.Size = new Size(81, 23);
             buttonWakeUp.TabIndex = 13;
@@ -437,6 +472,8 @@
             tabControl1.ResumeLayout(false);
             tabPageMeasurement.ResumeLayout(false);
             tabPageManagement.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             groupBoxSensor.ResumeLayout(false);
             groupBoxVersion.ResumeLayout(false);
             groupBoxVersion.PerformLayout();
@@ -473,5 +510,8 @@
         private Label label1;
         private Label label4;
         private Label label3;
+        private Button buttonFanCleaning;
+        private GroupBox groupBox1;
+        private Label label5;
     }
 }

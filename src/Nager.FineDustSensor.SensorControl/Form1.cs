@@ -14,6 +14,7 @@ namespace Nager.FineDustSensor.SensorControl
         {
             this.InitializeComponent();
             this.DeactivateSensorControls();
+            this.SwitchConnectDisconnect(false);
 
             this.labelPM1.Text = "";
             this.labelPM2_5.Text = "";
@@ -41,6 +42,12 @@ namespace Nager.FineDustSensor.SensorControl
             this.buttonStopRecording.Enabled = false;
         }
 
+        private void SwitchConnectDisconnect(bool isConnected)
+        {
+            this.buttonConnect.Enabled = !isConnected;
+            this.buttonDisconnect.Enabled = isConnected;
+        }
+
         private async void buttonConnect_Click(object sender, EventArgs e)
         {
             this._deviceCommunication = new SerialPortDeviceCommunication(this.textBoxSerialPort.Text, logger: this._loggerFactory.CreateLogger<SerialPortDeviceCommunication>());
@@ -48,9 +55,11 @@ namespace Nager.FineDustSensor.SensorControl
             this._sps30Client = new Sps30Client(this._deviceCommunication, this._loggerFactory.CreateLogger<Sps30Client>());
             if (await this._deviceCommunication.ConnectAsync())
             {
+                this.SwitchConnectDisconnect(true);
                 this.ActivateSensorControls();
                 await this.GetVersionAsync();
-            } else
+            }
+            else
             {
                 MessageBox.Show("Cannot connect", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -65,6 +74,7 @@ namespace Nager.FineDustSensor.SensorControl
 
             if (await this._deviceCommunication.DisconnectAsync())
             {
+                this.SwitchConnectDisconnect(false);
                 this.DeactivateSensorControls();
             }
         }
@@ -74,8 +84,19 @@ namespace Nager.FineDustSensor.SensorControl
             await this.GetVersionAsync();
         }
 
+        private void ResetVersionInfo()
+        {
+            this.labelFirmwareVersion.Text = string.Empty;
+            this.labelHardwareRevision.Text = string.Empty;
+            this.labelShdlcProtocol.Text = string.Empty;
+        }
+
         private async Task GetVersionAsync()
         {
+            this.ResetVersionInfo();
+
+            await Task.Delay(100);
+
             if (this._sps30Client == null)
             {
                 return;
@@ -84,9 +105,6 @@ namespace Nager.FineDustSensor.SensorControl
             var versionResponse = await this._sps30Client.ReadVersionAsync();
             if (versionResponse == null)
             {
-                this.labelFirmwareVersion.Text = string.Empty;
-                this.labelHardwareRevision.Text = string.Empty;
-                this.labelShdlcProtocol.Text = string.Empty;
                 return;
             }
 
@@ -200,6 +218,16 @@ namespace Nager.FineDustSensor.SensorControl
             }
 
             await this._sps30Client.WakeUpAsync();
+        }
+
+        private async void buttonFanCleaning_Click(object sender, EventArgs e)
+        {
+            if (this._sps30Client == null)
+            {
+                return;
+            }
+
+            await this._sps30Client.StartFanCleaningAsync();
         }
     }
 }
