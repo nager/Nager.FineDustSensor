@@ -17,7 +17,7 @@ The application also offers the ability to plot the sensor values in a graph.
 
 - .NET 8 or higher
 - A USB-to-serial adapter or a serial port
-- SPS30 particulate matter sensor - [SEK-SPS30](https://sensirion.com/products/catalog/SEK-SPS30)
+- SPS30 particulate matter sensor - [SEK-SPS30 evaluation kit](https://sensirion.com/products/catalog/SEK-SPS30)
 
 ## Usage
 
