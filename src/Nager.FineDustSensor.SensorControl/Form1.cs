@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Logging;
 using Nager.FineDustSensor.Sps30;
+using System.IO.Ports;
 
 namespace Nager.FineDustSensor.SensorControl
 {
@@ -24,6 +25,11 @@ namespace Nager.FineDustSensor.SensorControl
                 builder.SetMinimumLevel(LogLevel.Trace);
                 builder.AddFile("default.log", LogLevel.Trace, outputTemplate: "{Timestamp:HH:mm:ss.fff} {Level:u3} {SourceContext} {Message:lj}{NewLine}{Exception}");
             });
+        }
+        private void comboBoxSerialPort_DropDown(object sender, EventArgs e)
+        {
+            this.comboBoxSerialPort.Items.Clear();
+            this.comboBoxSerialPort.Items.AddRange(SerialPort.GetPortNames());
         }
 
         private void ActivateSensorControls()
@@ -50,7 +56,7 @@ namespace Nager.FineDustSensor.SensorControl
 
         private async void buttonConnect_Click(object sender, EventArgs e)
         {
-            this._deviceCommunication = new SerialPortDeviceCommunication(this.textBoxSerialPort.Text, logger: this._loggerFactory.CreateLogger<SerialPortDeviceCommunication>());
+            this._deviceCommunication = new SerialPortDeviceCommunication(this.comboBoxSerialPort.Text, logger: this._loggerFactory.CreateLogger<SerialPortDeviceCommunication>());
 
             this._sps30Client = new Sps30Client(this._deviceCommunication, this._loggerFactory.CreateLogger<Sps30Client>());
             if (await this._deviceCommunication.ConnectAsync())

@@ -37,7 +37,6 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            textBoxSerialPort = new TextBox();
             buttonConnect = new Button();
             buttonDisconnect = new Button();
             buttonGetVersion = new Button();
@@ -50,6 +49,7 @@
             labelHardwareRevision = new Label();
             labelShdlcProtocol = new Label();
             panel1 = new Panel();
+            comboBoxSerialPort = new ComboBox();
             panel3 = new Panel();
             label4 = new Label();
             label2 = new Label();
@@ -79,14 +79,6 @@
             groupBoxSensor.SuspendLayout();
             groupBoxVersion.SuspendLayout();
             SuspendLayout();
-            // 
-            // textBoxSerialPort
-            // 
-            textBoxSerialPort.Location = new Point(9, 10);
-            textBoxSerialPort.Name = "textBoxSerialPort";
-            textBoxSerialPort.Size = new Size(153, 23);
-            textBoxSerialPort.TabIndex = 0;
-            textBoxSerialPort.Text = "COM5";
             // 
             // buttonConnect
             // 
@@ -249,9 +241,9 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(comboBoxSerialPort);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
-            panel1.Controls.Add(textBoxSerialPort);
             panel1.Controls.Add(buttonConnect);
             panel1.Controls.Add(buttonDisconnect);
             panel1.Controls.Add(buttonStopRecording);
@@ -263,6 +255,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 101);
             panel1.TabIndex = 12;
+            // 
+            // comboBoxSerialPort
+            // 
+            comboBoxSerialPort.FormattingEnabled = true;
+            comboBoxSerialPort.Location = new Point(9, 11);
+            comboBoxSerialPort.Name = "comboBoxSerialPort";
+            comboBoxSerialPort.Size = new Size(153, 23);
+            comboBoxSerialPort.TabIndex = 14;
+            comboBoxSerialPort.DropDown += comboBoxSerialPort_DropDown;
             // 
             // panel3
             // 
@@ -464,7 +465,6 @@
             Text = "FineDust SensorControl";
             ((System.ComponentModel.ISupportInitialize)chartFineDust).EndInit();
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel2.ResumeLayout(false);
@@ -481,8 +481,6 @@
         }
 
         #endregion
-
-        private TextBox textBoxSerialPort;
         private Button buttonConnect;
         private Button buttonDisconnect;
         private Button buttonGetVersion;
@@ -513,5 +511,6 @@
         private Button buttonFanCleaning;
         private GroupBox groupBox1;
         private Label label5;
+        private ComboBox comboBoxSerialPort;
     }
 }
