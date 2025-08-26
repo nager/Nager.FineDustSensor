@@ -2,9 +2,8 @@
 
 ## Overview
 
-This project provides a C# client for communicating with the Sensirion SPS30 particulate matter sensor via a UART (serial) interface.
-It includes both a console application and a Windows Forms application ("SensorControl") that provides all the sensor functionalities through a graphical user interface (GUI).
-The application also offers the ability to plot the sensor values in a graph.
+A **C# client** for communicating with the Sensirion **SPS30 particulate matter sensor** via UART (serial).  
+Includes a **console app** and a **Windows Forms app** ("SensorControl") with **real-time plotting** of sensor values.
 
 ## ✨ Key Features
 
