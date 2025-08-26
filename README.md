@@ -6,20 +6,20 @@ This project provides a C# client for communicating with the Sensirion SPS30 par
 It includes both a console application and a Windows Forms application ("SensorControl") that provides all the sensor functionalities through a graphical user interface (GUI).
 The application also offers the ability to plot the sensor values in a graph.
 
-## Features
+## ✨ Key Features
 
 - Communication with the SPS30 sensor over UART (SHDLC Frame Layer)
 - Reading measurements (PM1, PM2.5, PM4, PM10)
 - Starting and stopping measurements
 - Plotting sensor data in a graph
 
-## Requirements
+## 🛠️ Requirements
 
 - .NET 8 or higher
 - A USB-to-serial adapter or a serial port
 - SPS30 particulate matter sensor - [SEK-SPS30 evaluation kit](https://sensirion.com/products/catalog/SEK-SPS30)
 
-## Usage
+## 💻 Usage
 
 ### Windows Forms Application ("SensorControl")
 
@@ -31,17 +31,17 @@ The Windows Forms application provides a user-friendly interface for interacting
 - **Display Measurements**: Real-time display of current measurements (PM1, PM2.5, PM4, PM10).
 - **Plot Data**: Graph to visualize particle concentrations over time.
 
-#### Download
+#### 📥 Download
 
 You can easily download the tool here<br>
 <br>
 [<kbd> <br> Download SensorControl <br> </kbd>](https://github.com/nager/Nager.FineDustSensor/releases/latest/download/Nager.FineDustSensor.SensorControl.zip)
 
-#### Screenshot
+#### 🖼️ Screenshot
 
 ![SensorControl Screenshot](/docs/SensorControl.png)
 
-## Contribution
+## 🤝Contribution
 
 Contributions are welcome! Please create a pull request or open an issue to report bugs or suggest new features.
 
