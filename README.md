@@ -44,6 +44,6 @@ You can easily download the tool here<br>
 
 Contributions are welcome! Please create a pull request or open an issue to report bugs or suggest new features.
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more information.
